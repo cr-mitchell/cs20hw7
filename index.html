@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Fun - Charles Mitchell</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            activityDiv = $(".activity");
+            $.get("https://www.boredapi.com/api/activity/").then((data) => {
+                activityText = data.activity;
+                activityDiv.append(activityText);
+            })
+        })
+    </script>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .activity {
+            color:blueviolet;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        h3 {
+            font-weight: normal;
+            font-family:'Courier New', Courier, monospace
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Free Your Boredom API</h1>
+    <p>Something to do: </p>
+    <div class="activity" style="display:inline"></div>
+
+    <h3>The API I chose genrates random things to do every time the web page
+        is refreshed. <br><br>
+
+        I found this API on https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/
+        <br><br>
+
+        Not only does it generate random activities to do in the 
+        JSON data return, but it also tells the user what type of activity 
+        it is suggesting you, how many participants it requires, and the price
+        it may cost to complete this activity. For simplicity purposes, I only
+        used the activity section of the JSON data. <br><br>
+
+        This API could be used when internet service is out, just like when
+        google shows the running dinosaur game when there is no internet 
+        connection. This API could also be used on any website that could use
+        these suggestions as a slide show. <br><br>
+    </h3>
+</body>
+</html>
